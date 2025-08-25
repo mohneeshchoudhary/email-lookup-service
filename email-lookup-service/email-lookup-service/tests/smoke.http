@@ -1,0 +1,14 @@
+### Health
+GET http://localhost:8080/health
+
+### Lookup (set your values)
+POST http://localhost:8080/lookup
+Content-Type: application/json
+
+{
+  "username": "huggingface-user",
+  "huggingface": "huggingface-user",
+  "github": "github-user",
+  "blog_url": "https://example.com",
+  "force_refresh": false
+}

@@ -1,0 +1,17 @@
+version: "3.9"
+services:
+  redis:
+    image: redis:7-alpine
+    container_name: email_lookup_redis
+    ports: ["6379:6379"]
+  api:
+    build: .
+    container_name: email_lookup_api
+    env_file:
+      - .env.example   # rename to .env and edit for production
+    volumes:
+      - ./data:/app/data
+    ports:
+      - "8080:8080"
+    depends_on:
+      - redis
